@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.navbar-static-top {
+  margin-bottom:20px;
+}
+
+i {
+  font-size:16px;
+}
+
+.nav > li > a {
+  color:#787878;
+}
+  
+footer {
+  margin-top:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color:#efefef;
+}
+
+/* count indicator near icons */
+.nav>li .count {
+  position: absolute;
+  bottom: 12px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  background: rgba(51,200,51,0.55);
+  color: rgba(255,255,255,0.9);
+  line-height: 1em;
+  padding: 2px 4px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* indent 2nd level */
+.list-unstyled li > ul > li {
+   margin-left:10px;
+   padding:8px;
+}
+</style>
+  <script>
+$.ajax({
+        url:"http://localhost:3000/products/get-all",
+        type: "GET",
+        dataType: 'json', 
+        crossDomain: "true",      
+        success: function (result) {
+            if (result.type == false) {
+                alert("Error occured:" + result.data);
+                return false;
+            }
+            $.each(JSON.parse(result.data),function(index,obj){
+          console.log(obj.id);
+              $("#products").append(" <div class='col-sm-4'>"
+	   +"<div class='panel panel-primary'>"
+	   +" <div class='panel-heading'>"+obj.id+"</div>"
+       +" <div class='panel-heading'>"+obj.name+"</div>"
+	   +"<a href='http://localhost:3001/product/?id="+obj.id+"'>Editar produto</a>"
+	   +"</div></div>")});
+	   }
+	   });
+	   </script>
+</head>
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-toggle"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+          <ul id="g-account-menu" class="dropdown-menu" role="menu">
+            <li><a href="#">My Profile</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div><!-- /container -->
+</div>
+<!-- /Header -->
+
+<!-- Main -->
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+      <!-- Left column -->
+      <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Tools</strong></a>  
+      
+      <hr>
+      
+      <ul class="list-unstyled">
+        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">
+          <h5>Settings <i class="glyphicon glyphicon-chevron-down"></i></h5>
+          </a>
+            <ul class="list-unstyled collapse in" id="userMenu">
+                <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Options</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Shoutbox</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Staff List</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Transactions</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-exclamation-sign"></i> Rules</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+            </ul>
+        </li>
+        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2">
+          <h5>Reports <i class="glyphicon glyphicon-chevron-right"></i></h5>
+          </a>
+        
+            <ul class="list-unstyled collapse" id="menu2">
+                <li><a href="#">Information & Stats</a>
+                </li>
+                <li><a href="#">Views</a>
+                </li>
+                <li><a href="#">Requests</a>
+                </li>
+                <li><a href="#">Timetable</a>
+                </li>
+                <li><a href="#">Alerts</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-header">
+        <a href="#" data-toggle="collapse" data-target="#menu3">
+          <h5>Social Media <i class="glyphicon glyphicon-chevron-right"></i></h5>
+          </a>
+        
+            <ul class="list-unstyled collapse" id="menu3">
+                <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Facebook</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Twitter</a></li>
+            </ul>
+        </li>
+      </ul>
+           
+  
+  	</div><!-- /col-3 -->
+    <div class="col-md-9">
+      	
+      <!-- column 2 -->	
+      <ul class="list-inline pull-right">
+         <li><a href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
+         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-comment"></i><span class="count">3</span></a><ul class="dropdown-menu" role="menu"><li><a href="#">1. Is there a way..</a></li><li><a href="#">2. Hello, admin. I would..</a></li><li><a href="#"><strong>All messages</strong></a></li></ul></li>
+         <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+         <li><a title="Add Widget" data-toggle="modal" href="/admin/product"><span class="glyphicon glyphicon-plus-sign"></span> Add Product</a></li>
+		  <li><a title="Add Widget" data-toggle="modal" href="/category"><span class="glyphicon glyphicon-plus-sign"></span>Add Category</a></li>
+      </ul>
+      <a href="#"><strong><i class="glyphicon glyphicon-dashboard"></i> My Dashboard</strong></a>  
+      
+      	<hr>
+      
+		
+               
+              <!--/tabs-->
+              
+              <hr>
+                    <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+            <div id="products">
+							</div>
+			</ul>
+        </div>
+      </div>
+            
+   
+          	</div><!--/col-->
+        	
+     
+      </div><!--/row-->
+      
+      <hr>
+      
+      <a href="#"><strong><i class="glyphicon glyphicon-comment"></i> Discussions</strong></a>  
+      
+      <hr>
+      
+
+  	</div><!--/col-span-9-->
+</div>
+</div>
+<!-- /Main -->
+
+<footer class="text-center">BlizShop <a href="#"><strong>BlizShop.com</strong></a></footer>
+
+
+</html>
+
+
+  
