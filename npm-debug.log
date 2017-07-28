@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'bugs',
+1 verbose cli   'shop-online' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.0
+4 silly fetchPackageMetaData shop-online
+5 silly fetchNamedPackageData shop-online
+6 silly mapToRegistry name shop-online
+7 silly mapToRegistry using default registry
+8 silly mapToRegistry registry https://registry.npmjs.org/
+9 silly mapToRegistry data Result {
+9 silly mapToRegistry   raw: 'shop-online',
+9 silly mapToRegistry   scope: null,
+9 silly mapToRegistry   escapedName: 'shop-online',
+9 silly mapToRegistry   name: 'shop-online',
+9 silly mapToRegistry   rawSpec: '',
+9 silly mapToRegistry   spec: 'latest',
+9 silly mapToRegistry   type: 'tag' }
+10 silly mapToRegistry uri https://registry.npmjs.org/shop-online
+11 verbose request uri https://registry.npmjs.org/shop-online
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 19:48:59
+14 verbose request id fae221c99ea62f66
+15 http request GET https://registry.npmjs.org/shop-online
+16 http 404 https://registry.npmjs.org/shop-online
+17 verbose headers { 'content-type': 'application/json',
+17 verbose headers   'cache-control': 'max-age=0',
+17 verbose headers   'content-length': '2',
+17 verbose headers   'accept-ranges': 'bytes',
+17 verbose headers   date: 'Fri, 28 Jul 2017 18:48:57 GMT',
+17 verbose headers   via: '1.1 varnish',
+17 verbose headers   age: '0',
+17 verbose headers   connection: 'keep-alive',
+17 verbose headers   'x-served-by': 'cache-mad9433-MAD',
+17 verbose headers   'x-cache': 'MISS',
+17 verbose headers   'x-cache-hits': '0',
+17 verbose headers   'x-timer': 'S1501267736.326513,VS0,VE719',
+17 verbose headers   vary: 'Accept-Encoding' }
+18 silly get cb [ 404,
+18 silly get   { 'content-type': 'application/json',
+18 silly get     'cache-control': 'max-age=0',
+18 silly get     'content-length': '2',
+18 silly get     'accept-ranges': 'bytes',
+18 silly get     date: 'Fri, 28 Jul 2017 18:48:57 GMT',
+18 silly get     via: '1.1 varnish',
+18 silly get     age: '0',
+18 silly get     connection: 'keep-alive',
+18 silly get     'x-served-by': 'cache-mad9433-MAD',
+18 silly get     'x-cache': 'MISS',
+18 silly get     'x-cache-hits': '0',
+18 silly get     'x-timer': 'S1501267736.326513,VS0,VE719',
+18 silly get     vary: 'Accept-Encoding' } ]
+19 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/shop-online
+19 silly fetchPackageMetaData     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+19 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:280:14)
+19 silly fetchPackageMetaData     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+19 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+19 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+19 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+19 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+19 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+19 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+19 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+19 silly fetchPackageMetaData  error for shop-online { Error: Registry returned 404 for GET on https://registry.npmjs.org/shop-online
+19 silly fetchPackageMetaData     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+19 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:280:14)
+19 silly fetchPackageMetaData     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+19 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+19 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+19 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+19 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+19 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+19 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+19 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12) pkgid: 'shop-online', statusCode: 404, code: 'E404' }
+20 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/shop-online
+20 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+20 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:280:14)
+20 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+20 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+20 verbose stack     at emitTwo (events.js:106:13)
+20 verbose stack     at Request.emit (events.js:191:7)
+20 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+20 verbose stack     at emitOne (events.js:96:13)
+20 verbose stack     at Request.emit (events.js:188:7)
+20 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+21 verbose statusCode 404
+22 verbose pkgid shop-online
+23 verbose cwd C:\Users\Pai\Desktop\Nodejs\REST-API-SHOPPING\shopping
+24 error Windows_NT 10.0.14393
+25 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "bugs" "shop-online"
+26 error node v6.11.0
+27 error npm  v3.10.10
+28 error code E404
+29 error 404 Registry returned 404 for GET on https://registry.npmjs.org/shop-online
+30 error 404
+31 error 404 'shop-online' is not in the npm registry.
+32 error 404 You should bug the author to publish it (or use the name yourself!)
+33 error 404 Note that you can also install from a
+34 error 404 tarball, folder, http url, or git url.
+35 verbose exit [ 1, true ]
