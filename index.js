@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/view/';
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3000;
 var fs = require("fs");
 
 var phpExpress = require('php-express')({
@@ -96,11 +96,14 @@ app.use("*",function(req,res){
 
 
 
+app.use("/favicon.icon",function(req,res){
+  res.sendFile(path + "404.html");
+});
 
 
 
 app.listen(port,function(){
-  console.log("Live at Port 3001");
+  console.log("Live at Port 3000");
 });
 
 /*
