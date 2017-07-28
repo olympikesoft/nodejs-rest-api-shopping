@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/view/';
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3001
 var fs = require("fs");
 
 var phpExpress = require('php-express')({
