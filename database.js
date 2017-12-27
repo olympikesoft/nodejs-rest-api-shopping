@@ -22,7 +22,7 @@ function getNewestFile(dir, regexp) {
             one_matched = 1;
             continue
         }
-
+		/*check if it's the last file inserted using getTime();*/
         f1_time = fs.statSync(path.join(dir, files[i])).mtime.getTime()
         f2_time = fs.statSync(path.join(dir, newest)).mtime.getTime()
         if (f1_time > f2_time)
