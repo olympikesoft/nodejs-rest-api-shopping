@@ -1,42 +1,10 @@
-var express    = require("express");
-var mysql      = require('mysql');
-var moment      = require('moment');
-var app = express();
-//var async = require('async');
-
-var session = require('express-session');
-
-app.set('views', __dirname + '/view');
-app.set('view engine', 'ejs'); //extension of views
-var bodyParser = require('body-parser');
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
-app.use(bodyParser.json());
-
-
-app.use(session({secret: "Shh, its a secret!"}));
-
-var multer = require('multer');
-
-var path = require('path');
-
-
-var fs = require("fs");
+var index = require('./index');
 
 
 
-
-
-
-app.use(session({secret: "Shh, its a secret!"}));
 
 
 /* Last file inserted */
-
-
 function getNewestFile(dir, regexp) {
     var fs = require("fs"),
      path = require('path'),
@@ -67,9 +35,6 @@ function getNewestFile(dir, regexp) {
 }
 
 
-//mysql 
-
-var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -127,7 +92,7 @@ connection.query('SELECT * from color', function(err, rows, fields) {
 
 app.get("/products/get-all",function(req,res){
 //Use connection to execute query and use rows from values
-connection.query('SELECT * from product limit 6', function(err, rows, fields) {
+connection.query('SELECT * from product limit 3', function(err, rows, fields) {
 
   if (!err)
   {
@@ -144,7 +109,6 @@ connection.query('SELECT * from product limit 6', function(err, rows, fields) {
   });
 });
 
-app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/search',function(req,res){
 //req.query is for Get form 
@@ -181,7 +145,7 @@ var value = rows.length;
 
 
 
-
+/*
 app.get('/login', function(req, res){
 
 	var email = req.query.email; // Get['email'];
@@ -223,7 +187,7 @@ app.get('/login', function(req, res){
 		//res.send('You are redirected for homePage');
 		//
 		//Redirect with id
-		return res.redirect("http://localhost:3001/homepage/");
+		return res.redirect("/homepage/");
 		
 		
 		}else{
@@ -235,7 +199,7 @@ app.get('/login', function(req, res){
 	
 	});
 
-});
+});*/
 
 //Get session of the email user ;;;;;
 app.get('/main', function(req, res){
@@ -263,7 +227,7 @@ connection.query(QuerySelect,function(err, rows, fields) {
 		if(!err)
 		{
 		console.log("Add product to cart");
-			return res.redirect("http://localhost:3001/")
+			return res.redirect("/")
 		}else{
 		
 		res.send('Dont inserted the products');
@@ -323,7 +287,7 @@ app.post('/insert', function(req,res){
 	   if(rows.length > 0)
 	   {
 	   
-		res.redirect("http://localhost:3001/login")
+		res.redirect("/login")
 		}else{
 			console.log("Não existe conta com esse email associado");
 				Create_Account();
@@ -439,7 +403,7 @@ app.post('/insert/product', function(req,res){
 			 lastId = results.insertId;
 			 console.log(lastId);
 			   
-					return res.redirect("http://localhost:3001/admin/insert_product")
+					return res.redirect("/admin/insert_product")
                 
                }
            
@@ -466,7 +430,7 @@ app.post('/insert/photos', function(req,res){
 		}
 	}).single('file');
 	upload(req, res, function(err) {
-	//	res.end('File is uploaded')
+	//	res.send('File is uploaded')
 	})
 	
 	var f = getNewestFile("./images/", new RegExp('.*\.jpg'));
@@ -497,33 +461,6 @@ app.post('/insert/photos', function(req,res){
     
     
 });
-/*
-/**** END INSERT Product*/
-
-//Get parameter of url link
-/*
-// GET /p/5
-// tagId is set to 5
-
-app.get('/p/:tagId', function(req, res) {
-  res.send("tagId is set to " + req.params.tagId);
-});
-
-*//////////
-
-/*
-// GET /p?tagId=5
-// tagId is set to 5
-
-app.get('/p', function(req, res) {
-  res.send("tagId is set to " + req.query.tagId);
-});
-
-*///////////
-
-
-
-
 
 /// Working fine, receive values from house/id  int id;
 app.get('/product/:id', function(req, res) {
@@ -584,8 +521,6 @@ app.get('/cart/delete/:id', function(req, res){
 
 
 
-
-server.listen(80);
 
 
 
